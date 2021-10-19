@@ -118,6 +118,21 @@ Resources:
         - !Ref ListCartRole
         - !Ref AddToCartRole
 
+  PinpointPolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyName: PinpointPolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action: [
+                "mobiletargeting:*"
+            ]
+            Resource: "*"
+      Roles:
+        - !Ref AddToCartRole
+
   DynamoDBReadPolicy:
     Type: "AWS::IAM::Policy"
     Properties:
